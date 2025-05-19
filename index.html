@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>전략기획실 프로젝트 대시보드</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="flex flex-col h-screen bg-[#121212] text-[#d4af37] font-sans">
+        <!-- Header Title -->
+        <header
+            class="bg-[#1a1a1a] text-center py-4 shadow-md border-b border-[#d4af37]"
+        >
+            <h1
+                class="text-xl font-bold tracking-wide text-left ml-[30px] text-[#d4af37] hover:text-[#ffd700] shadow-xl hover:shadow-2xl transition-all hover:scale-105 transform-gpu duration-300 ease-in-out"
+            >
+                전략기획실 프로젝트 대시보드
+            </h1>
+        </header>
+
+        <!-- Main Body: Sidebar + Content -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <div
+                class="w-64 bg-[#1a1a1a] border-r-2 border-[#d4af37] shadow-md p-4 overflow-y-auto"
+            >
+                <ul class="space-y-2" id="sidebar-menu">
+                    <li data-id="project1" class="group cursor-pointer">
+                        <div
+                            class="p-3 rounded-md text-xs font-semibold hover:bg-[#d4af37] hover:text-[#121212]"
+                        >
+                            [1] AI비서 프로젝트 (ojt,ai개발)
+                        </div>
+                        <p
+                            class="hidden text-[15px] px-4 pb-2 text-white group-[.active]:block"
+                        >
+                            2025-04<br />
+                            id : eibe05
+                            <br />
+                            pass : 202505
+                            <br />
+                            1.
+                            <br />업무자동화를 위한<br />AI 비서 개발 프로젝트
+                            개발<br />프론트엔드 구현 완료<br />(AI비서 진입 ,
+                            확장성 고려)<br />2. <br />
+                            ai 학습능력 검토 <br />
+                            세일즈 팀 협업중
+                        </p>
+                    </li>
+                    <li data-id="project2" class="group cursor-pointer">
+                        <div
+                            class="p-3 rounded-md text-xs font-semibold hover:bg-[#d4af37] hover:text-[#121212]"
+                        >
+                            [2] CL 프로젝트 관리
+                        </div>
+                        <p
+                            class="hidden text-[15px] px-4 pb-2 text-white group-[.active]:block"
+                        >
+                            2025-05<br />1. <br />
+                            팀별 관리자 <br />
+                            공유 페이지 구축<br />2. <br />
+                            교육자료 제작중
+                        </p>
+                    </li>
+                    <li data-id="project3" class="group cursor-pointer">
+                        <div
+                            class="p-3 rounded-md text-xs font-semibold hover:bg-[#d4af37] hover:text-[#121212]"
+                        >
+                            [3] 홈페이지 리뉴얼 기능확인
+                        </div>
+                        <p
+                            class="hidden text-[15px] px-4 pb-2 text-white group-[.active]:block"
+                        >
+                            2025-05<br />1. <br />
+                            홈페이지의 기능과
+                            <br />구조를 리뉴얼중<br />관리자 추가 검토 필요
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Content -->
+            <div
+                class="flex-1 flex items-center justify-center p-6 bg-gradient-to-br from-[#222] to-[#111]"
+            >
+                <div
+                    id="iframe-container"
+                    class="w-full h-[80vh] bg-black rounded-xl shadow-lg relative overflow-hidden"
+                >
+                    <iframe
+                        id="iframe"
+                        class="w-full h-full rounded-xl"
+                        src=""
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const projectUrls = {
+                project1: "https://agency8group.github.io/eibe_cs/",
+                project2: "https://agency8group.github.io/Logistics_Project/",
+                project3: "https://agency8group.github.io/site_plan/",
+            };
+
+            const sidebarItems = document.querySelectorAll("#sidebar-menu li");
+            const iframe = document.getElementById("iframe");
+
+            sidebarItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    sidebarItems.forEach((i) => i.classList.remove("active"));
+                    item.classList.add("active");
+
+                    const id = item.getAttribute("data-id");
+                    iframe.src = projectUrls[id];
+                });
+            });
+
+            // 기본 첫 프로젝트 로드
+            document.querySelector('[data-id="project1"]').click();
+        </script>
+    </body>
+</html>
