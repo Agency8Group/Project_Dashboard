@@ -4,17 +4,27 @@
         <meta charset="UTF-8" />
         <title>전략기획실 프로젝트 대시보드</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+            rel="stylesheet"
+        />
         <style>
+            * {
+                font-family: "Pretendard Variable", sans-serif;
+            }
+
             .scrolling-text {
                 white-space: nowrap;
                 overflow: hidden;
                 box-sizing: border-box;
             }
+
             .scrolling-text h1 {
                 display: inline-block;
                 padding-left: 100%;
                 animation: marquee 15s linear infinite;
             }
+
             @keyframes marquee {
                 0% {
                     transform: translateX(0);
@@ -25,13 +35,15 @@
             }
         </style>
     </head>
-    <body class="flex flex-col h-screen bg-[#121212] text-[#d4af37] font-sans">
+    <body
+        class="flex flex-col h-screen bg-[#121212] text-[#d4af37] text-[15px] leading-relaxed"
+    >
         <!-- Header Title -->
         <header
             class="bg-[#1a1a1a] py-4 shadow-md border-b border-[#d4af37] scrolling-text"
         >
             <h1
-                class="text-xl font-bold tracking-wide text-[#d4af37] hover:text-[#ffd700] shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out"
+                class="text-xl font-bold tracking-wide hover:text-[#ffd700] shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out"
             >
                 전략기획실 프로젝트 대시보드 · 전략 로드맵 · 실시간 업무관리
                 시스템
@@ -42,7 +54,7 @@
         <div class="flex flex-1 overflow-hidden">
             <!-- Sidebar -->
             <aside
-                class="w-[26rem] bg-[#1a1a1a] border-r-2 border-[#d4af37] shadow-md p-6 overflow-y-auto font-sans text-sm leading-relaxed"
+                class="w-[26rem] bg-[#1a1a1a] border-r-2 border-[#d4af37] shadow-md p-6 overflow-y-auto"
             >
                 <ul class="space-y-4" id="sidebar-menu">
                     <li data-id="project1" class="group cursor-pointer">
@@ -52,7 +64,7 @@
                             [1] 드리미포털 개발 프로젝트(진행중)
                         </div>
                         <p
-                            class="hidden text-[15px] px-4 pb-2 text-white group-[.active]:block"
+                            class="hidden text-sm px-4 pb-2 text-white group-[.active]:block"
                         >
                             2025-04<br />
                             id : eibe05<br />
@@ -85,7 +97,7 @@
                             [2] CL 프로젝트 관리(진행중)
                         </div>
                         <p
-                            class="hidden text-[15px] px-4 pb-2 text-white group-[.active]:block"
+                            class="hidden text-sm px-4 pb-2 text-white group-[.active]:block"
                         >
                             2025-05<br />
                             1. 팀별 관리자 공유 페이지 구축<br />
@@ -100,7 +112,7 @@
                             [3] 홈페이지 리뉴얼 기능확인(진행중)
                         </div>
                         <p
-                            class="hidden text-[15px] px-4 pb-2 text-white group-[.active]:block"
+                            class="hidden text-sm px-4 pb-2 text-white group-[.active]:block"
                         >
                             2025-05<br />
                             1. 홈페이지의 기능과 구조를 리뉴얼중<br />
