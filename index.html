@@ -61,6 +61,25 @@
                 letter-spacing: 0.01em;
                 padding: 0.17rem 0.7rem;
                 border-radius: 1rem;
+                border: 1.5px solid transparent;
+                /* 기본 테두리 투명 */
+            }
+
+            /* 상태별 색상 */
+            .status-urgent {
+                background-color: #18171f;
+                border-color: #eab308aa;
+                color: #eab308;
+            }
+            .status-inprogress {
+                background-color: #1e232c;
+                border-color: #61e5b250;
+                color: #61e5b2;
+            }
+            .status-completed {
+                background-color: #2f2f2f;
+                border-color: #888888aa;
+                color: #888888;
             }
         </style>
     </head>
@@ -131,10 +150,7 @@
                                     <path d="M15 17v2" />
                                 </svg>
                                 [0] 전략기획 긴급확인
-                                <span
-                                    class="status-badge bg-[#18171f] border border-[#eab308]/60 text-[#eab308] ml-auto"
-                                    >긴급</span
-                                >
+                                <span class="status-badge ml-auto">긴급</span>
                             </div>
                             <p
                                 class="hidden text-sm px-4 pb-2 text-[#b7bdce] group-[.active]:block"
@@ -170,10 +186,7 @@
                                     <path d="M3 10h18" />
                                 </svg>
                                 [1] 드리미포털 개발 프로젝트
-                                <span
-                                    class="status-badge bg-[#1e232c] border border-[#61e5b2]/50 text-[#61e5b2] ml-auto"
-                                    >진행중</span
-                                >
+                                <span class="status-badge ml-auto">진행중</span>
                             </div>
                             <p
                                 class="hidden text-sm px-4 pb-2 text-[#b7bdce] group-[.active]:block"
@@ -221,10 +234,7 @@
                                     <path d="M6 10v4m0 0v4" />
                                 </svg>
                                 [2] CL 프로젝트 관리
-                                <span
-                                    class="status-badge bg-[#1e2336] border border-[#60a5fa]/60 text-[#60a5fa] ml-auto"
-                                    >진행중</span
-                                >
+                                <span class="status-badge ml-auto">진행중</span>
                             </div>
                             <p
                                 class="hidden text-sm px-4 pb-2 text-[#b7bdce] group-[.active]:block"
@@ -266,10 +276,7 @@
                                     />
                                 </svg>
                                 [3] 홈페이지 리뉴얼 기능확인
-                                <span
-                                    class="status-badge bg-[#21191a] border border-[#ff5e5e]/50 text-[#ff5e5e] ml-auto"
-                                    >진행중</span
-                                >
+                                <span class="status-badge ml-auto">진행중</span>
                             </div>
                             <p
                                 class="hidden text-sm px-4 pb-2 text-[#b7bdce] group-[.active]:block"
@@ -308,10 +315,7 @@
                                     <path d="M2 10h20" />
                                 </svg>
                                 [4] 비즈니스 프리젠테이션
-                                <span
-                                    class="status-badge bg-[#19181b] border border-[#f9a825]/40 text-[#f9a825] ml-auto"
-                                    >진행중</span
-                                >
+                                <span class="status-badge ml-auto">완료</span>
                             </div>
                             <p
                                 class="hidden text-sm px-4 pb-2 text-[#b7bdce] group-[.active]:block"
@@ -348,10 +352,7 @@
                                     <path d="M6 2v4m12-4v4" />
                                 </svg>
                                 [5] 사내매거진
-                                <span
-                                    class="status-badge bg-[#191824] border border-[#b492fa]/50 text-[#b492fa] ml-auto"
-                                    >진행중</span
-                                >
+                                <span class="status-badge ml-auto">진행중</span>
                             </div>
                             <p
                                 class="hidden text-sm px-4 pb-2 text-[#b7bdce] group-[.active]:block"
@@ -413,6 +414,28 @@
             document.querySelector('[data-id="project1"]').click();
             // Fade-in 효과 (초기)
             setTimeout(() => iframe.classList.add("visible"), 200);
+
+            // 상태별 badge 색상 자동 적용
+            document.querySelectorAll(".status-badge").forEach((badge) => {
+                const statusText = badge.textContent.trim();
+                badge.classList.remove(
+                    "status-urgent",
+                    "status-inprogress",
+                    "status-completed"
+                );
+
+                switch (statusText) {
+                    case "긴급":
+                        badge.classList.add("status-urgent");
+                        break;
+                    case "진행중":
+                        badge.classList.add("status-inprogress");
+                        break;
+                    case "완료":
+                        badge.classList.add("status-completed");
+                        break;
+                }
+            });
         </script>
     </body>
 </html>
